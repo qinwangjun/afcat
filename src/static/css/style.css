@@ -1,0 +1,142 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  margin: 0;
+}
+.wrap{
+  margin: 0 auto;
+  width: 1280px;
+  min-height: 410px;
+}
+.logo{
+  text-align: center;
+}
+.page-layout{
+  background: #e1e1e1;
+}
+#logo{
+  color:#1890ff;
+}
+/* .ant-layout-header .ant-menu-overflow{
+  justify-content: flex-end;
+} */
+.page-content{
+  margin: 15px auto;
+}
+.index_list{
+  background: #ffffff;
+  padding: 0 20px;
+}
+.registBox{
+  width: 50%;
+  margin: 0 auto;
+}
+.registBox .ant-input{
+  width: 340px !important;
+}
+.registBox .ant-input-affix-wrapper{
+  width: 340px !important;
+}
+.registBox .ant-form-item-children-icon{
+  right: 56px !important;
+}
+.regist_tips{
+  text-align: center;
+  margin: 24px 0;
+  font-size: 14px;
+  padding-top: 72px;
+}
+.reg_title{
+  font-size: 28px;
+  font-weight: bold;
+  color: #1890FF;
+}
+
+.article_width{width: 1028px; margin: 0 auto; padding: 60px 0;}
+
+.empty{ min-height: 300px; text-align: center; font-size: 28px; padding: 50px 0 0 0;}
+.login-form {
+  /* width: 50%; */
+  max-width: 300px;
+  margin: 0 auto;
+}
+/* .login-form-forgot {
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+} */
+.login-form-button {
+  width: 100%;
+  border-radius: 3px;
+}
+.ant-layout-footer{
+  background: #13191e !important;
+}
+.footer_content{
+  margin: 44px auto;
+  color: #efefef;
+  text-align: center;
+}
+.articleBubmitBtn{
+  margin-right: 8px;
+}
+.article{
+  padding-top: 40px;
+}
+.ant-pagination{
+  margin-top: 16px !important;
+}
+.header_flex{
+  display: flex;
+  justify-content: space-between;
+}
+.header_right{
+  display: flex;
+}
+.ant-menu-dark .ant-menu-item > span > a{
+  color: rgba(255, 255, 255, 0.85);
+}
+.userInfo{
+  margin-left: 8px;
+}
+.userName{
+  color: rgba(255, 255, 255, 0.85);
+}
+.userName .anticon-down{
+  color: #1677ff;
+}
+.avatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.Logout{
+  margin-top: 8px;
+}
+.Logout a,.upLoadAvatar a{
+  color: #333333 !important;
+}
+.Logout a:hover,.upLoadAvatar a:hover{
+  color: #1677ff !important;
+}
+
+.detial{width: 1028px; margin: 0 auto;}
+.detil_head{
+  text-align: center;
+  font-size: 26px;
+  padding: 25px 0 15px 0;
+}
+.detial_tag{
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+  padding: 5px 0;
+}
+.detial_tag span{ display: inline-block; padding: 0 10px;}
+.detial_content{ padding: 15px 20px; font-size: 16px; vertical-align:middle;}
+.detial_content img{ max-width: 80%; text-align: center; }
