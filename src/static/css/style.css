@@ -55,7 +55,7 @@ h6{
   color: #1890FF;
 }
 
-.article_width{width: 1028px; margin: 0 auto; padding: 60px 0;}
+.article_width{width: 1028px; background-color: #ffffff; margin: 0 auto; padding: 60px 0;}
 
 .empty{ min-height: 300px; text-align: center; font-size: 28px; padding: 50px 0 0 0;}
 .login-form {
@@ -125,11 +125,11 @@ h6{
   color: #1677ff !important;
 }
 
-.detial{width: 1028px; margin: 0 auto;}
+.detial{width: 1028px; margin: 0 auto; background-color: #ffffff;}
 .detil_head{
   text-align: center;
   font-size: 26px;
-  padding: 25px 0 15px 0;
+  padding:20px 25px;
 }
 .detial_tag{
   font-size: 14px;
@@ -138,5 +138,5 @@ h6{
   padding: 5px 0;
 }
 .detial_tag span{ display: inline-block; padding: 0 10px;}
-.detial_content{ padding: 15px 20px; font-size: 16px; vertical-align:middle;}
+.detial_content{ padding: 15px 20px; font-size: 16px; vertical-align:middle; word-break: break-all;}
 .detial_content img{ max-width: 80%; text-align: center; }

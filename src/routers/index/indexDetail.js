@@ -3,14 +3,14 @@ import {useSelector } from "react-redux";
 import React,{ useEffect } from "react";
 import { useLoadDetail } from "../../store/action/detail";
 function IndexListDetail(props){
-    console.log(props)
+    //console.log(props)
     const {match} = props;
     const {params}= match;
-    const {id,viewCount,top} = params;
+    const {id,viewCount} = params;
     const {loading,data} = useSelector(state=>state.detail);
     const getData = useLoadDetail();
     useEffect(()=>{
-        getData(id,viewCount,top);
+        getData(id,viewCount);
     },[id,viewCount]);
 
     return <>
@@ -21,7 +21,7 @@ function IndexListDetail(props){
                     <span>发布时间：{data.createdAt}</span>
                     <span>评论：{data.replyCount}</span>
                     <span>访问：{data.viewCount}</span>
-                    <span>置顶：{data.isTop}</span>
+                    {/* <span>置顶：{data.isTop}</span> */}
                 </div>
                 <hr></hr>
                 <div className='detial_content' dangerouslySetInnerHTML = {{ __html: data.content }} />

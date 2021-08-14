@@ -15,8 +15,9 @@ const router_list = [
     render(props){
       return <IndexPage {...props}/>
     }
-  },{
-    path:"/indexDetail/:id/:viewCount",
+  }
+  ,{
+    path:"/article/:id",
     render(props){
       return <IndexListDetail {...props}/>
     }

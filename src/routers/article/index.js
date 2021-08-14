@@ -1,8 +1,6 @@
-import React, { Fragment, useState } from "react";
-import { Row, Form, Input, Button, Select, DatePicker, Switch, message, Col } from "antd";
-// import axios from "axios";
-// import { useLocation } from "react-router";
-import { http } from "../../store/action/config";
+import React, { Fragment, useState ,useEffect} from "react";
+import { Row, Form, Input, Button, Select, DatePicker, Switch, message,Col } from "antd";
+import { http} from "../../store/action/config";
 import cookie from 'react-cookies'
 import withGuards from "../../component/guards";
 import { useHistory } from "react-router-dom";
@@ -28,6 +26,7 @@ function ArticlePage() {
         if(res.status == 200){
           message.success('发布成功！');
           replace("/?categoryId="+res.data.results.categoryId);
+          form.resetFields();
         }
       })
       .catch(err => message.error(err.response.data.message))
@@ -48,7 +47,7 @@ function ArticlePage() {
   return (
     <div className="view">
       <div className="wrap">
-        <div className="article">
+        <div className="article_width">
           <Fragment>
             <Form
               form={form}
@@ -81,7 +80,7 @@ function ArticlePage() {
                 name="content"
                 rules={[{ required: true, message: "请输入文章内容！" }]}
               >
-                <TextArea rows={4} placeholder="请输入文章内容"/>
+              <Input.TextArea rows='4' placeholder="请输入文章内容"/>        
               </Form.Item>
               {/* <Form.Item name='create_at' label="发布时间">
             <DatePicker />

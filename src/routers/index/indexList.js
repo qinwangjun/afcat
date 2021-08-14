@@ -29,21 +29,22 @@ function IndexList(props){
       return <List.Item
           key={item.id}
           actions={[
-            <Link to={`/indexDetail/${item.id}/${item.viewCount}`}  style={{color:'red'}}>
+            <Link to={`/article/${item.id}`}  style={{color:'red'}}>
               <IconText icon={StarOutlined} text={item.viewCount} key="list-vertical-star-o" />
             </Link>,
             <Link to={`/replies/${item.id}/${item.replyCount}`}>
               <IconText icon={MessageOutlined} text={item.replyCount} key="list-vertical-message" />
-            </Link>,
-            <Link to={`/indexDetail/${item.id}/${item.top}`}  style={{color:'green'}}>
-              <IconText icon={UpCircleOutlined} text={item.top= 1?'置顶':''} key="list-vertical-up-circle" />
             </Link>
+            // ,
+            // <Link to={`/indexDetail/${item.id}/${item.top}`}  style={{color:'green'}}>
+            //   <IconText icon={UpCircleOutlined} text={item.top= 1?'置顶':''} key="list-vertical-up-circle" />
+            // </Link>
           ]}
         >    
             <Skeleton avatar title={false} loading={item.loading} active>
               <List.Item.Meta
                 avatar={ <Avatar src={item.avatar} /> }
-                title={<Link to={`/indexDetail/${item.id}/${' '}`}>{item.title}</Link>}            
+                title={<Link to={`/article/${item.id}`}>{item.title}</Link>}            
               />
             </Skeleton>          
         </List.Item>       

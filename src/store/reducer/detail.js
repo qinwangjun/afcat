@@ -3,14 +3,17 @@ function detail(detail={
   loading:true
 },action){
   switch(action.type){
-    case "DETAILS_LOADING":
+    case "DETAIL_LOADING":
       return {
         data:[],
         loading:true
       }
-    case "DETAILS_LOAD":
+    case "DETAIL_LOAD":
       return {
-        data:action.data,
+        data:{
+          ...action.data,
+          viewCount:action.data.viewCount + 1
+        },
         loading:false
       }
 
