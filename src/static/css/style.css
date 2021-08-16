@@ -140,3 +140,23 @@ h6{
 .detial_tag span{ display: inline-block; padding: 0 10px;}
 .detial_content{ padding: 15px 20px; font-size: 16px; vertical-align:middle; word-break: break-all;}
 .detial_content img{ max-width: 80%; text-align: center; }
+.avatarPage{
+  margin-top: 40px;
+  padding-top: 120px;
+  height: 400px;
+}
+.avatarBtn{
+  margin-top: 30px;
+}
+.findList{
+  background: #ffffff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+.searchBox{
+  margin-top: 20px;
+}
+.searchBox div{
+  margin-top: 10px;
+}

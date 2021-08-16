@@ -6,7 +6,9 @@ import SettingPage from "./setting/index";
 import RegistPage from "./regist/index";
 import LoginPage from "./login/index";
 import FindPage from "./find/index";
-import Head from "./head/head"
+import Head from "./head/head";
+import ReplyPage from "./reply/index";
+import ArticleReply from "./index/articleReply";
 const router_list = [
   {
     path:"/",
@@ -19,7 +21,8 @@ const router_list = [
   ,{
     path:"/article/:id",
     render(props){
-      return <IndexListDetail {...props}/>
+       //return <IndexListDetail {...props}/>
+	  return <ArticleReply {...props}/>
     }
   },{
     path:"/article",
@@ -63,6 +66,13 @@ const router_list = [
       return <Head {...props}/>
     }
   },{
+	path:"/replies",
+	exact: true,
+	isLogin: false,
+	render(props){
+		return <ReplyPage {...props}/>
+	}
+  },{
     path:"",
     isLogin: false,
     render(props){
@@ -81,19 +91,22 @@ const navs = [
   },{
     to: "/FindPage",
     title: "文章搜索"
-  },{
-    to: "/setting",
-    title: "设置"
-  },{
+  },
+  // {
+  //   to: "/setting",
+  //   title: "设置"
+  // },
+  {
     to: "/regist",
     title: "注册"
   },{
     to: "/login",
     title: "登录"
-  },{
-    to: "/head",
-    title: "头像上传"
-  },
+  }
+  // ,{
+  //   to: "/head",
+  //   title: "头像上传"
+  // },
 ];
 
 export {router_list,navs};

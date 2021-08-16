@@ -5,13 +5,33 @@ import Nav from "./nav";
 import { navs } from "../routers/router.config";
 import { Popover } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import cookie from 'react-cookies'
+import { useSelector } from "react-redux";
 const content = (
   <div>
-    <div className="upLoadAvatar"><Link to="/setting">上传头像</Link></div>
-    <div className="Logout"><Link to="/">退出登录</Link></div>
+    <div className="upLoadAvatar"><Link to="/head">上传头像</Link></div>
+    {/* <div className="Logout"><Link to="/">退出登录</Link></div> */}
   </div>
 );
+let avatar = '';
+let userName = '';
+// let isLogin = false;
 function Header(){
+  const {isLogin} = useSelector(state=>state.guards);
+  // const getToken = cookie.load('token');
+  if(isLogin){
+    avatar = cookie.load('avatar');
+    userName = cookie.load('userName');
+    console.log(avatar,userName)
+  }
+  // if(cookie.load('userName') && cookie.load('avatar')){
+  //   isLogin = true;
+  //   avatar = cookie.load('avatar');
+  //   userName = cookie.load('userName');
+  //   console.log('isLogin!')
+  //   console.log(avatar,userName)
+  // }
+  
   return <Affix offsetTop={0}>
     <Layout.Header>
       <div className="header_flex">
@@ -29,14 +49,14 @@ function Header(){
             />
           </div>
           <div className="userInfo">
-            <Popover placement="bottom" content={content} title="">
+            {isLogin ? <Popover placement="bottom" content={content} title="">
               <Link to="/">
-                <img className="avatar" src="https://avatars.githubusercontent.com/u/35025215?v=4&s=120" title=""/>
+                <img className="avatar" src={avatar} title=""/>
                 <span className="userName">
-                  张三 <DownOutlined />
+                  {userName} <DownOutlined />
                 </span>
               </Link>
-            </Popover>
+            </Popover> : ``}
           </div>
         </div>
       </div>

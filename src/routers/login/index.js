@@ -4,13 +4,21 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { http } from "../../store/action/config";
-import cookie from 'react-cookies'
+import cookie from 'react-cookies';
 
 function LoginPage(){
   const dispatch = useDispatch();
   const {isLogin,prevPath} = useSelector(state=>state.guards);
   const {replace} = useHistory();
-  
+  // const getToken = cookie.load('token');
+  // if(getToken){
+    // console.log('isLog:',isLogin)
+    // dispatch({
+    //   type:"GUARDS_LOGIN"
+    // });
+    
+    // isLogin = true;
+  // }
   useEffect(()=>{
     if(isLogin){
       replace(prevPath ? prevPath : '/');  
@@ -23,11 +31,16 @@ function LoginPage(){
       console.log('loginRes=',res)
       if(res.status == 200){
         message.success('登录成功！');
+        let avatar = 'http://39.99.151.246'+res.data.results.avatar;
         dispatch({
           type:"GUARDS_LOGIN"
         });
         const token = res.headers.authorization;
+        cookie.save('userName',res.data.results.username);
+        cookie.save('avatar',avatar);
+        // cookie.save('avatar','/static/imgs/peopledefault.png');
         cookie.save('token', token);
+        console.log('avatar:',avatar)
       }
     })
     .catch(err => {

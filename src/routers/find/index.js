@@ -1,4 +1,4 @@
-import Findlist from "../index/findList";
+import Findlist from "./findList";
 import SelectPage from "./select";
 import {useState} from 'react';
 

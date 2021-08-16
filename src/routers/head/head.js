@@ -1,6 +1,9 @@
 import React, { PureComponent } from "react";
-import {Button} from "antd";
+import {Button,message } from "antd";
 import axios from "axios";
+import cookie from 'react-cookies';
+import withGuards from "../../component/guards";
+
 const { Fragment } = React;
 
 class Head extends React.PureComponent {
@@ -9,12 +12,12 @@ class Head extends React.PureComponent {
     this.state = {
       file:'',
       showImg:'none',
-      token:'jianshu',
+      token:cookie.load('token'),
       name:'CoderZb',
       
 storeId:'91',
       subsidyAmount:'82',
-      imagePreviewUrl:'',
+      imagePreviewUrl:cookie.load('avatar'),
     }
   }
   render() {
@@ -28,7 +31,7 @@ storeId:'91',
     }
 
     return (
-      <div  align="center">
+      <div className="avatarPage" align="center">
         <Fragment >
           <tr>
                <input id="avatarFor" style={{display:'none'}} type="file" onChange={(e)=>this.handleImageChange(e)}/>
@@ -39,6 +42,7 @@ storeId:'91',
                <Button
                key="submit"
                type="primary"
+               className="avatarBtn"
                onClick={this.chargeFunc}>
                确定{" "}
           </Button>
@@ -56,8 +60,8 @@ storeId:'91',
     var file = e.target.files[0];
     
     reader.onloadend = () => {
-      console.log('文件名为—',file);
-      console.log('文件结果为—',reader.result);
+      // console.log('文件名为—',file);
+      // console.log('文件结果为—',reader.result.data);
       this.setState({
       file: file,
       imagePreviewUrl: reader.result
@@ -67,31 +71,36 @@ storeId:'91',
     reader.readAsDataURL(file)
   }
   chargeFunc= (e) => { 
-//     console.log("file为",this.state.file);
-//       const formData = new FormData();
-//       console.log("one------");
-//       formData.append('filename', this.state.file)
-//       formData.append('token',this.state.token);
-//       formData.append('userName',this.state.name);
-//       formData.append('storeId',this.state.storeId);
-//       formData.append('chargeMoney',this.state.subsidyAmount);
-//       let config = {
-//         method: 'post',
-//         headers:{'Content-Type': 'multipart/form-data'}
-//       }
-//       axios.post(saveStoreZeroCharge,formData,config).then((res) => {
-//         if (res.data.status === 200) {
-
-//             // this.getStoreInfo();
-//         }
-//         if (res.data.status != 200) {
-
-//             return false;
-//         }
-//     }).catch((error) => {
-//         console.log(error);
-//     })
+    let file1 = document.querySelector('#avatarFor').files[0]
+    console.log(file1)
+    let formdata = new FormData()
+    formdata.append("avatar", file1)
+    console.log(formdata)
+    axios({
+      url:'http://39.99.151.246/api/user/avatar',
+      method: 'patch',
+      headers:{
+        'authorization': this.state.token,
+        'Content-Type':'multipart/form-data'
+      },
+      data:formdata
+  }).then((res) => {
+    console.log(res)
+        if (res.status === 200) {
+          let avatar = 'http://39.99.151.246'+res.data.results;
+          cookie.save('avatar',avatar);
+          message.info('上传成功',5);
+        }
+        if (res.status != 200) {
+          console.log(res.data.status);
+          console.log(res.data.status);
+          message.info('上传失败',5);
+        }
+    }).catch((error) => {
+        console.log(error);
+		message.info('上传失败',5);
+    })
   }
 }
 
-export default Head;
+export default withGuards(Head);
