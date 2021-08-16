@@ -138,8 +138,14 @@ h6{
   padding: 5px 0;
 }
 .detial_tag span{ display: inline-block; padding: 0 10px;}
-.detial_content{ padding: 15px 20px; font-size: 16px; vertical-align:middle; word-break: break-all;}
+.detial_content{ min-height: 300px; padding: 15px 20px; font-size: 16px; vertical-align:middle; word-break: break-all;}
 .detial_content img{ max-width: 80%; text-align: center; }
+.reply_titile,.wrap_cent{ background-color:#ffffff;}
+.panel{ padding: 20px 30px 25px 25px; }
+.wrap_cent{ padding: 20px;}
+.wrap_cent  img{ border-radius:50%}
+.wrap_cent .login-form_left{ margin-left: 15px; font-size: 24px;}
+.wrap_cent .textArea_width{ width: 90%;}
 .avatarPage{
   margin-top: 40px;
   padding-top: 120px;
@@ -159,4 +165,8 @@ h6{
 }
 .searchBox div{
   margin-top: 10px;
+}
+.user_avatar img{
+  width: 64px;
+  height: 64px;
 }

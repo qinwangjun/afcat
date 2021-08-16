@@ -1,4 +1,4 @@
-import { List, Button } from "antd";
+import { List, Button ,Comment} from "antd";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLoadReplies } from "../../store/action/replies";
@@ -17,7 +17,7 @@ function IndexList(props){
  
 	let list = data.replies || [];
 	let baseNum = isNaN((Number(page)-1)*Number(limit)) ? 0 :(Number(page)-1)*Number(limit);
-	
+	console.log('list===',list)
 	const dateCalculation = (dateValue) => {
 		var date = new Date().getTime();
 		let num = new Date().getTime() - dateValue;
@@ -35,12 +35,31 @@ function IndexList(props){
   return <>
 		<div className="panel">
   			<div className="header">
-  			  <span className="col_fade_left" >{data.count+'评论'}</span>
+  			  {/* <span className="col_fade_left" >共有{data.count+'评论'}</span> */}
 			  <Button className="col_fade_right" type="primary" htmlType="submit" onClick={()=>{
 				 replace(`/replies?reply=true&articleId=${articleId}`);
 			  }}>添加评论</Button>
   			</div>
-			{
+			  <div>
+			  <List
+					className="comment-list"
+					header={`共有 ${list.length} 条评论`}
+					itemLayout="horizontal"
+					dataSource={list}
+					renderItem={(item,index )=> (
+					<li>
+						<Comment
+						//actions={item.actions}
+						author={item.username}
+						avatar={'http://39.99.151.246/public/avatar/'+item.avatar}
+						content={item.content}
+						datetime={(index+1+baseNum)+'楼  ' + dateCalculation(item.createdAt)}
+						/>
+					</li>
+					)}
+				/>
+			  </div>
+			{/* {
 				list.map((item, index)=>{
 					return (<div className="cell reply_area reply_item" key={item.id}>
 								<div className="author_content">
@@ -60,14 +79,16 @@ function IndexList(props){
 								<div className="clearfix"></div>
 							</div>)
 				})
-			}
-  		</div>
+			} */}
+  		
+		 
 		<RepliesPagination
 		  articleId={articleId}
 		  page={page}
 		  limit={limit}
 		  total={data.count}
 		/>
+		</div>
 	</>
   
  /* return <List

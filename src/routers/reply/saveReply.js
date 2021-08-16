@@ -8,8 +8,8 @@ const { TextArea } = Input;
 function SaveReply(props){
 	//const token = cookie.load('token');
 	const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDA0MSwidXNlcm5hbWUiOiJxcTEyMyIsImlhdCI6MTYyODk0MzAyOH0.qKoK0Y8Q0em_9RxrsTeHDqz7Qy6wFICS-ggCbikB1Q8";
-	const useName = "张三";
-	const imgSrc = 'https://avatars.githubusercontent.com/u/35025215?v=4&s=120';
+	const useName = cookie.load('userName');
+	const imgSrc = cookie.load('avatar');
 	const {articleId } = props;
 	const [form] = Form.useForm();
 	const {replace} = useHistory();
@@ -53,8 +53,8 @@ function SaveReply(props){
             label=""
           >
            <div className="user_avatar">
-           	<img src={imgSrc} ></img>
-			<span className="login-form_left">{useName}</span>
+           	  <img src={imgSrc} ></img>
+		        	<span className="login-form_left">{useName}</span>
            </div> 
           </Form.Item>
 
@@ -68,7 +68,7 @@ function SaveReply(props){
               },
             ]}
           >
-            <Input.TextArea/>
+            <Input.TextArea  rows='4' placeholder="请输入文章内容" className='textArea_width'/>
           </Form.Item>
 
           <Form.Item >

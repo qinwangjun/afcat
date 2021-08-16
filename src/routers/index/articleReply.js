@@ -7,9 +7,13 @@ function ArticleReply(props){
 	//console.log(props);
   const {search} = useLocation();
   const {categoryId="all",page="1"} = qs.parse(search.slice(1));
-  return <div className="view">
-			<IndexListDetail {...props}/>
+  return <div className="detial">
+	  		
+			  <IndexListDetail {...props}/>
+			
+			  <div className='reply_titile'>
 			<ReplyPage {...props}/>
+			</div>
 		</div>
 }
 export default ArticleReply;

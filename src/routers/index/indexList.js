@@ -32,7 +32,7 @@ function IndexList(props){
             <Link to={`/article/${item.id}`}  style={{color:'red'}}>
               <IconText icon={StarOutlined} text={item.viewCount} key="list-vertical-star-o" />
             </Link>,
-            <Link to={`/replies/${item.id}/${item.replyCount}`}>
+            <Link to={`/article/${item.id}/${item.replyCount}`}>
               <IconText icon={MessageOutlined} text={item.replyCount} key="list-vertical-message" />
             </Link>
             // ,
