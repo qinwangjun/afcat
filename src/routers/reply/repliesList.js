@@ -51,7 +51,7 @@ function IndexList(props){
 						<Comment
 						//actions={item.actions}
 						author={item.username}
-						avatar={'http://39.99.151.246/public/avatar/'+item.avatar}
+						avatar={item.avatar.indexOf('https') > -1 ? item.avatar : 'http://39.99.151.246/public/avatar/'+item.avatar}
 						content={item.content}
 						datetime={(index+1+baseNum)+'楼  ' + dateCalculation(item.createdAt)}
 						/>
