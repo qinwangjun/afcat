@@ -1,5 +1,6 @@
+import cookie from 'react-cookies';
 function guards(guards={
-  isLogin:false,
+  isLogin:cookie.load('token') ? true : false,
   prevPath:""
 },action){
   switch(action.type){
