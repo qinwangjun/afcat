@@ -173,3 +173,6 @@ h6{
 .ant-comment-content-detail{
   width: 900px;
 }
+.wrap_cent .wrap_cent_title{width: 980px; overflow: hidden;}
+.ant-comment-avatar{width: 35px; height: 35px; overflow: hidden;}
+.ant-comment{width: 980px; overflow: hidden;}
