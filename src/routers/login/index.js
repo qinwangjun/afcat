@@ -36,11 +36,14 @@ function LoginPage(){
           type:"GUARDS_LOGIN"
         });
         const token = res.headers.authorization;
+        cookie.save('token', token);
         cookie.save('userName',res.data.results.username);
         cookie.save('avatar',avatar);
-        // cookie.save('avatar','/static/imgs/peopledefault.png');
-        cookie.save('token', token);
-        console.log('avatar:',avatar)
+        dispatch({
+          type:"USER_LOAD",
+          userName:res.data.results.username,
+          avatar:avatar
+        });
       }
     })
     .catch(err => {

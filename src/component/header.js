@@ -13,24 +13,12 @@ const content = (
     {/* <div className="Logout"><Link to="/">退出登录</Link></div> */}
   </div>
 );
-let avatar = '';
-let userName = '';
+// let avatar = '';
+// let userName = '';
 // let isLogin = false;
 function Header(){
   const {isLogin} = useSelector(state=>state.guards);
-  // const getToken = cookie.load('token');
-  if(isLogin){
-    avatar = cookie.load('avatar');
-    userName = cookie.load('userName');
-    console.log(avatar,userName)
-  }
-  // if(cookie.load('userName') && cookie.load('avatar')){
-  //   isLogin = true;
-  //   avatar = cookie.load('avatar');
-  //   userName = cookie.load('userName');
-  //   console.log('isLogin!')
-  //   console.log(avatar,userName)
-  // }
+  const {avatar,userName} = useSelector(state=>state.user);
   
   return <Affix offsetTop={0}>
     <Layout.Header>

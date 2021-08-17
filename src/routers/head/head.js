@@ -3,8 +3,24 @@ import {Button,message } from "antd";
 import axios from "axios";
 import cookie from 'react-cookies';
 import withGuards from "../../component/guards";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
 
 const { Fragment } = React;
+
+const mapDispatchToProps = (dispatch: Dispatch)=>{
+  return {
+    changeAvatar: (avatar: string,name: string) => {
+      const action= {
+        type:"USER_LOAD",
+        avatar:avatar,
+        userName:name
+      };
+      dispatch(action);
+    }
+  }
+}
+
 
 class Head extends React.PureComponent {
   constructor(props) {
@@ -14,8 +30,7 @@ class Head extends React.PureComponent {
       showImg:'none',
       token:cookie.load('token'),
       name:'CoderZb',
-      
-storeId:'91',
+      storeId:'91',
       subsidyAmount:'82',
       imagePreviewUrl:cookie.load('avatar'),
     }
@@ -24,7 +39,7 @@ storeId:'91',
     var {imagePreviewUrl,showImg} = this.state;
     var imagePreview = null;
     if (imagePreviewUrl) {
-      imagePreview = ( <label  for="avatarFor">< img style={{width:'80px',height:'80px'}} src={imagePreviewUrl} /></label>);
+      imagePreview = ( <label for="avatarFor">< img style={{width:'80px',height:'80px'}} src={imagePreviewUrl} /></label>);
       showImg = 'none';
     } else {
       showImg = 'block';
@@ -33,12 +48,12 @@ storeId:'91',
     return (
       <div className="avatarPage" align="center">
         <Fragment >
-          <tr>
+          <div>
                <input id="avatarFor" style={{display:'none'}} type="file" onChange={(e)=>this.handleImageChange(e)}/>
                {imagePreview}
                <label style={{color:"#1890FF",border:"1px dashed #1890FF",padding:'3px 10px ',display:showImg}} for="avatarFor">+点击上传图片</label>
-          </tr>
-          <tr>
+          </div>
+          <div>
                <Button
                key="submit"
                type="primary"
@@ -46,14 +61,14 @@ storeId:'91',
                onClick={this.chargeFunc}>
                确定{" "}
           </Button>
-          </tr>
+          </div>
       </Fragment>
       </div>
     );
   }
 
   
- handleImageChange(e) {
+  handleImageChange(e) {
     e.preventDefault();
     
     var reader = new FileReader();
@@ -71,6 +86,7 @@ storeId:'91',
     reader.readAsDataURL(file)
   }
   chargeFunc= (e) => { 
+    
     let file1 = document.querySelector('#avatarFor').files[0]
     console.log(file1)
     let formdata = new FormData()
@@ -85,10 +101,11 @@ storeId:'91',
       },
       data:formdata
   }).then((res) => {
-    console.log(res)
+    console.log('upres=',res)
         if (res.status === 200) {
           let avatar = 'http://39.99.151.246'+res.data.results;
           cookie.save('avatar',avatar);
+          this.props.changeAvatar(avatar,cookie.load('userName'));
           message.info('上传成功',5);
         }
         if (res.status != 200) {
@@ -103,4 +120,4 @@ storeId:'91',
   }
 }
 
-export default withGuards(Head);
+export default connect(null,mapDispatchToProps)(withGuards(Head));
