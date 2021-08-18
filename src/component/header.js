@@ -5,32 +5,21 @@ import Nav from "./nav";
 import { navs } from "../routers/router.config";
 import { Popover } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import cookie from 'react-cookies'
 import { useSelector } from "react-redux";
+import defaultAvatar from "../static/imgs/peopledefault.png";
+
 const content = (
   <div>
     <div className="upLoadAvatar"><Link to="/head">上传头像</Link></div>
     {/* <div className="Logout"><Link to="/">退出登录</Link></div> */}
   </div>
 );
-let avatar = '';
-let userName = '';
+// let avatar = '';
+// let userName = '';
 // let isLogin = false;
 function Header(){
   const {isLogin} = useSelector(state=>state.guards);
-  // const getToken = cookie.load('token');
-  if(isLogin){
-    avatar = cookie.load('avatar');
-    userName = cookie.load('userName');
-    console.log(avatar,userName)
-  }
-  // if(cookie.load('userName') && cookie.load('avatar')){
-  //   isLogin = true;
-  //   avatar = cookie.load('avatar');
-  //   userName = cookie.load('userName');
-  //   console.log('isLogin!')
-  //   console.log(avatar,userName)
-  // }
+  const {avatar,userName} = useSelector(state=>state.user);
   
   return <Affix offsetTop={0}>
     <Layout.Header>
@@ -51,7 +40,7 @@ function Header(){
           <div className="userInfo">
             {isLogin ? <Popover placement="bottom" content={content} title="">
               <Link to="/">
-                <img className="avatar" src={avatar} title=""/>
+                <img className="avatar" src={avatar.split('http://39.99.151.246/public/avatar/')[1] == '' ? defaultAvatar : avatar} title=""/>
                 <span className="userName">
                   {userName} <DownOutlined />
                 </span>

@@ -8,7 +8,7 @@ h6{
 }
 .wrap{
   margin: 0 auto;
-  width: 1280px;
+  padding: 20px;
   min-height: 410px;
 }
 .logo{
@@ -141,7 +141,6 @@ h6{
 .detial_content{ min-height: 300px; padding: 15px 20px; font-size: 16px; vertical-align:middle; word-break: break-all;}
 .detial_content img{ max-width: 80%; text-align: center; }
 .reply_titile,.wrap_cent{ background-color:#ffffff;}
-.panel{ padding: 20px 30px 25px 25px; }
 .wrap_cent{ padding: 20px;}
 .wrap_cent  img{ border-radius:50%}
 .wrap_cent .login-form_left{ margin-left: 15px; font-size: 24px;}
@@ -173,6 +172,6 @@ h6{
 .ant-comment-content-detail{
   width: 900px;
 }
-.wrap_cent .wrap_cent_title{width: 980px; overflow: hidden;}
-.ant-comment-avatar{width: 35px; height: 35px; overflow: hidden;}
-.ant-comment{width: 980px; overflow: hidden;}
+.wrap_cent .wrap_cent_title{width: 980px;overflow: hidden;}
+.ant-comment-avatar{width: 35px;height: 35px;overflow: hidden;}
+.ant-comment{width: 980px;overflow: hidden;}
