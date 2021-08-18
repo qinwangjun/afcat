@@ -32,7 +32,7 @@ class Head extends React.PureComponent {
       name:'CoderZb',
       storeId:'91',
       subsidyAmount:'82',
-      imagePreviewUrl:cookie.load('avatar'),
+      imagePreviewUrl:cookie.load('avatar').split('http://39.99.151.246/public/avatar/')[1]=='' ? '' : cookie.load('avatar'),
     }
   }
   render() {
@@ -42,7 +42,7 @@ class Head extends React.PureComponent {
       imagePreview = ( <label for="avatarFor">< img style={{width:'80px',height:'80px'}} src={imagePreviewUrl} /></label>);
       showImg = 'none';
     } else {
-      showImg = 'block';
+      showImg = 'inline-block';
     }
 
     return (

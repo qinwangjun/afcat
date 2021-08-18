@@ -5,8 +5,9 @@ import Nav from "./nav";
 import { navs } from "../routers/router.config";
 import { Popover } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import cookie from 'react-cookies'
 import { useSelector } from "react-redux";
+import defaultAvatar from "../static/imgs/peopledefault.png";
+
 const content = (
   <div>
     <div className="upLoadAvatar"><Link to="/head">上传头像</Link></div>
@@ -39,7 +40,7 @@ function Header(){
           <div className="userInfo">
             {isLogin ? <Popover placement="bottom" content={content} title="">
               <Link to="/">
-                <img className="avatar" src={avatar} title=""/>
+                <img className="avatar" src={avatar.split('http://39.99.151.246/public/avatar/')[1] == '' ? defaultAvatar : avatar} title=""/>
                 <span className="userName">
                   {userName} <DownOutlined />
                 </span>

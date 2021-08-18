@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useLoadReplies } from "../../store/action/replies";
 import {useHistory} from "react-router-dom";
 import RepliesPagination from "./repliesPagination";
+import defaultAvatar from "../../static/imgs/peopledefault.png";
 
 function IndexList(props){
   const {articleId,page,limit} = props;
@@ -51,7 +52,7 @@ function IndexList(props){
 						<Comment
 						//actions={item.actions}
 						author={item.username}
-						avatar={item.avatar.indexOf('https') > -1 ? item.avatar : 'http://39.99.151.246/public/avatar/'+item.avatar}
+						avatar={item.avatar.indexOf('https') > -1 ? item.avatar : item.avatar == '' ? defaultAvatar : 'http://39.99.151.246/public/avatar/'+item.avatar}
 						content={item.content}
 						datetime={(index+1+baseNum)+'楼  ' + dateCalculation(item.createdAt)}
 						/>
