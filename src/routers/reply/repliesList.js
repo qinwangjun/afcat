@@ -52,7 +52,7 @@ function IndexList(props){
 						<Comment
 						//actions={item.actions}
 						author={item.username}
-						avatar={item.avatar.indexOf('https') > -1 ? item.avatar : item.avatar == '' ? defaultAvatar : 'http://39.99.151.246/public/avatar/'+item.avatar}
+						avatar={item.avatar.indexOf('https') > -1 ? item.avatar : (item.avatar == '' || item.avatar.indexOf('?') > -1) ? defaultAvatar : 'http://39.99.151.246/public/avatar/'+item.avatar}
 						content={item.content}
 						datetime={(index+1+baseNum)+'楼  ' + dateCalculation(item.createdAt)}
 						/>
