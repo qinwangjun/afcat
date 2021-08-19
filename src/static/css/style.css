@@ -20,6 +20,12 @@ h6{
 #logo{
   color:#1890ff;
 }
+#logo a{
+  display: flex!important;
+}
+#logo img{
+  height: 58px;
+}
 .page-content{
   margin: 15px auto;
 }

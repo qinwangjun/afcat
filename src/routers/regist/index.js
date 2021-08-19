@@ -68,7 +68,7 @@ function RegistPage(){
           onFinish={onFinish}
           scrollToFirstError
         >
-          <div className="regist_tips"><div className="reg_title">CNode</div><div>Node.js专业中文社区</div></div>
+          <div className="regist_tips"><div className="reg_title">AFCAT-CNode</div><div>Node.js专业中文社区</div></div>
           <Form.Item
             name="username"
             label="用&nbsp;&nbsp;户&nbsp;&nbsp;名"

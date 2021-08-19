@@ -5,6 +5,7 @@ import { navs } from "../routers/router.config";
 import { Popover } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { useSelector } from "react-redux";
+import logo from "../static/imgs/logo-03.png";
 import defaultAvatar from "../static/imgs/peopledefault.png";
 import cookie from 'react-cookies';
 
@@ -28,7 +29,7 @@ function Header(){
     <Layout.Header>
       <div className="header_flex">
         <h1 id="logo">
-          <Link to="/">CNode</Link>
+          <Link to="/"><img src={logo} /></Link>
         </h1>
         <div className="header_right">
           <div>

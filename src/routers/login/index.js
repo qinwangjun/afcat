@@ -55,7 +55,7 @@ function LoginPage(){
 
   return <div className="view">
     <div className="wrap">
-      <div className="regist_tips"><div className="reg_title">欢迎登录CNode</div><div>Node.js专业中文社区</div></div>
+      <div className="regist_tips"><div className="reg_title">欢迎登录AFCAT-CNode</div><div>Node.js专业中文社区</div></div>
       <Form
         name="normal_login"
         className="login-form"
