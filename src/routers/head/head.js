@@ -32,7 +32,7 @@ class Head extends React.PureComponent {
       name:'CoderZb',
       storeId:'91',
       subsidyAmount:'82',
-      imagePreviewUrl:cookie.load('avatar').split('http://39.99.151.246/public/avatar/')[1]=='' ? '' : cookie.load('avatar'),
+      imagePreviewUrl:(cookie.load('avatar').split('http://10.24.24.64:9999/public/avatar/')[1]=='' || cookie.load('avatar').split('http://10.24.24.64:9999')[1]=='') ? '' : cookie.load('avatar'),
     }
   }
   render() {
@@ -75,8 +75,6 @@ class Head extends React.PureComponent {
     var file = e.target.files[0];
     
     reader.onloadend = () => {
-      // console.log('文件名为—',file);
-      // console.log('文件结果为—',reader.result.data);
       this.setState({
       file: file,
       imagePreviewUrl: reader.result
@@ -93,7 +91,7 @@ class Head extends React.PureComponent {
     formdata.append("avatar", file1)
     console.log(formdata)
     axios({
-      url:'http://39.99.151.246/api/user/avatar',
+      url:'http://10.24.24.64:9999/api/user/avatar',
       method: 'patch',
       headers:{
         'authorization': this.state.token,
@@ -101,9 +99,8 @@ class Head extends React.PureComponent {
       },
       data:formdata
   }).then((res) => {
-    console.log('upres=',res)
         if (res.status === 200) {
-          let avatar = 'http://39.99.151.246'+res.data.results;
+          let avatar = 'http://10.24.24.64:9999/public/avatar/'+res.data.results;
           cookie.save('avatar',avatar);
           this.props.changeAvatar(avatar,cookie.load('userName'));
           message.info('上传成功',5);

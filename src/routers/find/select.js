@@ -4,7 +4,7 @@ import axios from "axios";
 const { Search } = Input;
 let s=null;
 let radioValue='';
-let url='http://39.99.151.246/api/user/articles';
+let url='http://10.24.24.64:9999/api/user/articles';
 function SelectPage(props){
     s = props.d;
     
@@ -32,7 +32,7 @@ function onSearch(value){
         return;
     }
     axios({
-        url:'http://39.99.151.246/api/user/profile',
+        url:'http://10.24.24.64:9999/api/user/profile',
         params:{
             value:value,
             type:1
@@ -76,14 +76,13 @@ function selectAll(value){
 }
 
 function onChange(data){
-    // console.log(1)
     radioValue = data.target.value;
     if(radioValue == '1')
     {
-        url='http://39.99.151.246/api/user/articles';
+        url='http://10.24.24.64:9999/api/user/articles';
     }else
     {
-        url='http://39.99.151.246/api/user/replies';
+        url='http://10.24.24.64:9999/api/user/replies';
     }
 }
 export default SelectPage;

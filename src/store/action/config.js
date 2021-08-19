@@ -2,12 +2,8 @@ import axios from "axios";
 
 const http = axios.create({
   baseURL:"api"
-  // baseURL:" http://39.99.151.246/api"
-  // baseURL:" https://cnodejs.org/api/v1"
 });
 const detailHttp = axios.create({
-  //baseURL:"api"
-   baseURL:" http://39.99.151.246/api"
-  // baseURL:" https://cnodejs.org/api/v1"
+   baseURL:" http://10.24.24.64:9999/api"
 });
 export {http,detailHttp};

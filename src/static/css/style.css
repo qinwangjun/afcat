@@ -20,9 +20,6 @@ h6{
 #logo{
   color:#1890ff;
 }
-/* .ant-layout-header .ant-menu-overflow{
-  justify-content: flex-end;
-} */
 .page-content{
   margin: 15px auto;
 }
@@ -54,21 +51,12 @@ h6{
   font-weight: bold;
   color: #1890FF;
 }
-
 .article_width{width: 1028px; background-color: #ffffff; margin: 0 auto; padding: 60px 0;}
-
 .empty{ min-height: 300px; text-align: center; font-size: 28px; padding: 50px 0 0 0;}
 .login-form {
-  /* width: 50%; */
   max-width: 300px;
   margin: 0 auto;
 }
-/* .login-form-forgot {
-  float: right;
-}
-.ant-col-rtl .login-form-forgot {
-  float: left;
-} */
 .login-form-button {
   width: 100%;
   border-radius: 3px;

@@ -31,7 +31,7 @@ function LoginPage(){
       console.log('loginRes=',res)
       if(res.status == 200){
         message.success('登录成功！');
-        let avatar = 'http://39.99.151.246'+res.data.results.avatar;
+        let avatar = 'http://10.24.24.64:9999'+res.data.results.avatar;
         dispatch({
           type:"GUARDS_LOGIN"
         });

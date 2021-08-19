@@ -13,7 +13,6 @@ function ArticlePage() {
   const [form] = Form.useForm();
   const {replace} = useHistory();
   const onFinish = (values) => {
-    // const { token } = useLocation();
     console.log('submit:', values)
     const token = cookie.load('token');
     http.post('/article', values, {
@@ -82,12 +81,6 @@ function ArticlePage() {
               >
               <Input.TextArea rows='4' placeholder="请输入文章内容"/>        
               </Form.Item>
-              {/* <Form.Item name='create_at' label="发布时间">
-            <DatePicker />
-          </Form.Item>
-          <Form.Item name='top' valuePropName="checked" label="是否置顶">
-            <Switch />
-          </Form.Item> */}
               <Form.Item {...tailLayout} >
                 <Button type="primary" size='large' htmlType="submit" className='articleBubmitBtn'>
                   提交
