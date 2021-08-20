@@ -5,6 +5,7 @@ import { useLoadReplies } from "../../store/action/replies";
 import {useHistory} from "react-router-dom";
 import RepliesPagination from "./repliesPagination";
 import defaultAvatar from "../../static/imgs/peopledefault.png";
+import withGuards from "../../component/guards";
 
 function IndexList(props){
   const {articleId,page,limit} = props;
@@ -52,7 +53,7 @@ function IndexList(props){
 						<Comment
 						//actions={item.actions}
 						author={item.username}
-						avatar={(item.avatar == null || item.avatar == '' || item.avatar.indexOf('?') > -1) ? defaultAvatar : item.avatar.indexOf('https') > -1 ? item.avatar : 'http://10.24.24.64:9999/public/avatar/'+item.avatar}
+						avatar={(item.avatar == null || item.avatar == '' || item.avatar.indexOf("upload_") > -1) ? defaultAvatar : item.avatar}
 						content={item.content}
 						datetime={(index+1+baseNum)+'楼  ' + dateCalculation(item.createdAt)}
 						/>
@@ -71,4 +72,4 @@ function IndexList(props){
 	</>
 }
 
-export default IndexList;
+export default withGuards(IndexList);
