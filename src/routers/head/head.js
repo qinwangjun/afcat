@@ -100,7 +100,7 @@ class Head extends React.PureComponent {
       data:formdata
   }).then((res) => {
         if (res.status === 200) {
-          let avatar = 'http://10.24.24.64:9999/public/avatar/'+res.data.results;
+          let avatar = 'http://10.24.24.64:9999'+res.data.results;
           cookie.save('avatar',avatar);
           this.props.changeAvatar(avatar,cookie.load('userName'));
           message.info('上传成功',5);

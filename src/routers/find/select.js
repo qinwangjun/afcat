@@ -53,8 +53,8 @@ function onSearch(value){
 }
 
 function selectAll(value){
-   console.log("1111 "+value)
-   console.log("222 "+url)
+//    console.log("1111 "+value)
+//    console.log("222 "+url)
     axios({
         url:url,
         params:{

@@ -60,29 +60,7 @@ function IndexList(props){
 					)}
 				/>
 			  </div>
-			{/* {
-				list.map((item, index)=>{
-					return (<div className="cell reply_area reply_item" key={item.id}>
-								<div className="author_content">
-									<div className="user_avatar">
-										<img src={item.avatar} ></img>
-									</div>
-									<div className="user_info">
-									  <span>{item.username} </span>
-									  <span>{(index+1+baseNum)+'楼'+dateCalculation(item.createdAt)}</span>
-									</div>
-								</div>
-								<div className="reply_content">
-									<div className="markdown-text">
-										<p>{item.content}</p>
-									</div>
-								</div>
-								<div className="clearfix"></div>
-							</div>)
-				})
-			} */}
-  		
-		 
+
 		<RepliesPagination
 		  articleId={articleId}
 		  page={page}
@@ -91,16 +69,6 @@ function IndexList(props){
 		/>
 		</div>
 	</>
-  
- /* return <List
-    loading={loading}
-    className="index_list"
-    dataSource={indexNavs}
-    renderItem={item=>{
-      return <List.Item>{item.content}</List.Item>
-	  
-    }}
-  /> */
 }
 
 export default IndexList;

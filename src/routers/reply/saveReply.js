@@ -2,6 +2,7 @@ import { Form, Input, Button, message} from 'antd';
 import { http } from "../../store/action/config";
 import {useHistory,useLocation} from "react-router-dom";
 import cookie from 'react-cookies'
+import defaultAvatar from "../../static/imgs/peopledefault.png";
 
 const { TextArea } = Input;
 
@@ -53,7 +54,7 @@ function SaveReply(props){
             label=""
           >
            <div className="user_avatar">
-           	  <img src={imgSrc} ></img>
+           	  <img src={imgSrc.split("http://10.24.24.64:9999/public/avatar/")[1] == '' ? defaultAvatar : imgSrc} ></img>
 		        	<span className="login-form_left">{useName}</span>
            </div> 
           </Form.Item>
